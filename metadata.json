@@ -1,0 +1,6 @@
+{
+  "name": "Síntese Sistêmica: Curadoria & Filosofia Clássica",
+  "description": "Motor de curadoria estratégica e inteligência sistêmica integrando clima de BH, mercados, geopolítica e filosofia clássica, católica e contemporânea.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

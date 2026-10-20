@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Computer Modern Serif', 'Latin Modern Roman', 'CMU Serif', 'EB Garamond', Georgia, serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Computer Modern Typewriter', 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-serif);
+    background-color: #fcfbf8;
+    color: #1e2229;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+.font-cm {
+  font-family: var(--font-serif);
+}
+
+.font-sans-ui {
+  font-family: var(--font-sans);
+}
+
+.font-mono-data {
+  font-family: var(--font-mono);
+}
+
+/* Realistic A4 Paper Simulation in Screen Preview */
+.a4-screen-sheet {
+  width: 100%;
+  max-width: 210mm;
+  min-height: 297mm;
+  background-color: #ffffff;
+  color: #111111;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Print styling specifically formatted for standard A4 paper dimensions & CMU Serif */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm 14mm 14mm;
+  }
+
+  html,
+  body {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-family: var(--font-serif) !important;
+    font-size: 9pt !important;
+    line-height: 1.4 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide all screen interactive UI, navigation bars, buttons, and modal wrappers */
+  header,
+  nav,
+  footer,
+  button,
+  input,
+  select,
+  textarea,
+  .no-print,
+  .screen-only,
+  #root > div > header,
+  #root > div > main,
+  #root > div > footer,
+  .print-modal-backdrop {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Show solely the formatted A4 document */
+  #a4-print-document {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 210mm !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+  }
+
+  #a4-print-document * {
+    visibility: visible !important;
+    color: #111111 !important;
+    text-shadow: none !important;
+  }
+
+  /* Page break rules for clean multi-page A4 document flow */
+  .a4-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    padding-top: 10mm !important;
+  }
+
+  .a4-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* High-contrast crisp border rules for paper */
+  .a4-hairline-b {
+    border-bottom: 0.75pt solid #222222 !important;
+  }
+
+  .a4-double-rule {
+    border-top: 1.5pt solid #111111 !important;
+    border-bottom: 0.5pt solid #111111 !important;
+    padding: 2pt 0 !important;
+  }
+
+  .a4-table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  .a4-table th,
+  .a4-table td {
+    border: 0.5pt solid #333333 !important;
+    padding: 4pt 6pt !important;
+  }
+}
