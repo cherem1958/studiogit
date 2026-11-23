@@ -1,22 +1,156 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Systemic Synthesis — Strategic Intelligence & Classical Philosophy</title>
-    <meta name="description" content="Executive intelligence briefing connecting Belo Horizonte weather, macroeconomic indicators, and global chokepoints with classical, scholastic, and contemporary philosophical strategy." />
-    <meta property="og:title" content="Systemic Synthesis — Strategic Intelligence & Classical Philosophy" />
-    <meta property="og:description" content="Executive intelligence briefing connecting Belo Horizonte weather, macroeconomic indicators, and global chokepoints with classical, scholastic, and contemporary philosophical strategy." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Computer Modern Web Font & LaTeX Academic Serif Fallbacks -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-[#faf8f5] text-[#1c1d21] antialiased">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101311">
+  <meta name="description" content="Seu espaço diário para organizar pendências, estudar e cultivar a vida intelectual.">
+  <title>Essencial — seu espaço diário</title>
+  <style>
+    :root{color-scheme:dark;--bg:#101311;--panel:#191d1a;--line:#30372f;--text:#edece4;--muted:#a2ab9f;--accent:#cad9ab;--gold:#d4b88a;--radius:20px;font-family:Inter,Segoe UI,system-ui,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}a{color:inherit;text-decoration:none}button{color:inherit}button:disabled{opacity:.5;cursor:wait}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:4px}button,input,select{border:1px solid var(--line)}button{background:transparent;border-radius:10px;padding:10px 14px}button:hover{background:#ffffff09}svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.layout{max-width:1600px;min-height:100vh;margin:auto;display:grid;grid-template-columns:220px minmax(0,1fr)}
+    .sidebar{padding:38px 26px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:48px;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:12px;font-family:Georgia,serif;font-size:27px;letter-spacing:-1px}.brand-mark{color:var(--accent);font-size:31px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2.2px;font-weight:600;color:var(--muted)}.sidebar nav{display:grid;gap:8px}.nav-link{display:flex;align-items:center;gap:12px;color:var(--muted);padding:12px 14px;border-radius:9px}.nav-link:hover,.nav-link.active{background:#cad9ab0c;color:var(--accent)}.nav-link.active{border:1px solid #cad9ab1e}.sidebar-note{margin-top:auto;font-size:12px;color:var(--muted)}.sidebar-note p{margin:10px 0}.status-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:7px}.main{padding:32px 48px 24px;min-width:0}.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-bottom:28px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px}.topbar .location{display:flex;align-items:center;gap:8px}.topbar svg{width:15px}.hero{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:32px;align-items:center;padding:46px 0 36px}.hero h1{font-family:Georgia,serif;font-size:clamp(35px,4vw,52px);line-height:1.15;font-weight:400;letter-spacing:-1.8px;margin:12px 0 16px}.hero h1 em{font-weight:400;color:var(--accent)}.hero p{color:var(--muted);max-width:430px;margin:0 0 24px}.primary{background:var(--accent);color:#1c2617;border:0;display:inline-flex;align-items:center;justify-content:center;gap:20px;font-weight:600;padding:13px 19px;border-radius:10px;min-height:46px}.primary:hover{background:#d9e8bd}.clock-block{text-align:right}.clock{font-size:62px;font-weight:300;letter-spacing:-3px;line-height:1.15;font-variant-numeric:tabular-nums}.clock-block p{color:var(--muted);font-size:12px;margin-top:10px}.overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:32px}.overview-card{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:14px;padding:19px 20px;background:linear-gradient(110deg,#ffffff02,transparent)}.icon-box{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#cad9ab0a;border:1px solid #cad9ab15;border-radius:12px;color:var(--accent);flex-shrink:0}.overview-value{font-size:23px;line-height:1.3;font-weight:500;letter-spacing:-.7px}.overview-label{font-size:11px;color:var(--muted);margin-top:2px}.weather-value{font-size:18px}.weather-detail{font-size:10px;color:var(--muted)}.weather-refresh{padding:3px;border:0;margin-left:auto;color:var(--muted);min-height:34px;min-width:30px}.weather-refresh svg{width:15px}.content-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr);gap:24px;align-items:start}.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.panel-heading{padding:23px 24px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}.panel-heading h2{font-size:17px;font-weight:500;letter-spacing:-.4px;margin:0}.panel-heading p{font-size:11px;color:var(--muted);margin:4px 0 0}.small-button{font-size:12px;display:flex;gap:7px;align-items:center;padding:7px 11px;min-height:38px}.small-button svg{width:15px}.filters{display:flex;gap:5px;padding:0 24px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}.filter{font-size:11px;padding:6px 12px;border-color:transparent;color:var(--muted)}.filter.active{background:#cad9ab14;color:var(--accent);border-color:#cad9ab26}.task-list{list-style:none;padding:0;margin:0}.task-row{display:flex;gap:13px;padding:19px 24px;border-bottom:1px solid #30372f99;align-items:flex-start}.task-row:last-child{border-bottom:0}.task-check{appearance:none;width:19px;height:19px;border:1px solid #596551;border-radius:6px;flex-shrink:0;margin:3px 0 0;cursor:pointer;display:grid;place-content:center;background:transparent}.task-check:checked{background:var(--accent);border-color:var(--accent)}.task-check:checked::after{content:'✓';color:#182014;font-size:14px;line-height:1}.task-main{min-width:0;flex:1}.task-title{font-size:13px;display:block;overflow-wrap:anywhere;cursor:pointer}.task-row.done .task-title{text-decoration:line-through;color:var(--muted)}.task-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:10px;color:var(--muted);margin-top:6px}.tag{font-size:9px;letter-spacing:.7px;text-transform:uppercase;color:var(--accent)}.tag.study{color:var(--gold)}.overdue{color:#e9ad96}.remove-task{color:#7e897a;border:0;padding:2px 4px;min-width:28px;min-height:28px}.remove-task svg{width:14px}.panel-footer{padding:15px 24px;border-top:1px solid var(--line);font-size:10px;color:var(--muted);display:flex;justify-content:space-between;gap:12px}.empty{padding:36px 24px;text-align:center;color:var(--muted)}.right-column{display:grid;gap:22px}.philosophy{padding:26px;position:relative;background:radial-gradient(ellipse at top right,#b4c79812,transparent 70%),var(--panel)}.philosophy .eyebrow{color:var(--accent)}.quote-mark{font-family:Georgia,serif;font-size:62px;color:#cad9ab3b;line-height:.8;margin-top:28px}.reflection{font-family:Georgia,serif;font-size:24px;line-height:1.45;letter-spacing:-.3px;margin:8px 0 23px}.philosopher{font-size:12px;font-weight:600}.concept{font-size:10px;color:var(--muted);margin:5px 0 0}.reflection-note{color:var(--muted);font-size:10px;border-top:1px solid var(--line);padding-top:16px;margin:20px 0 0}.quote-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px}.next-quote{padding:8px 10px;color:var(--muted);font-size:11px}.study-list{list-style:none;margin:0;padding:0 24px 12px}.study-list li{display:flex;align-items:center;gap:12px;padding:13px 0;border-top:1px solid var(--line)}.study-num{font-size:10px;color:#788471;font-variant-numeric:tabular-nums}.study-name{font-size:12px;flex:1}.study-kind{display:block;font-size:10px;color:var(--muted)}.study-add{border:0;padding:7px;color:var(--accent);min-width:34px;min-height:34px}.study-add svg{width:16px}.study-tip{padding:0 24px 20px;font-size:11px;color:var(--muted);margin:0}.bottom-bar{margin-top:32px;padding:20px 0 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px;color:var(--muted);font-size:10px}.data-actions{display:flex;gap:4px}.text-button{border:0;padding:8px;font-size:10px;color:var(--muted)}.text-button:hover{color:var(--text)}.mobile-brand{display:none}.progress-track{height:3px;background:var(--line);border-radius:5px;margin:14px 0 7px;overflow:hidden}.progress-track span{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}.save-notice{display:none;color:#e9ad96;font-size:12px;padding:12px;background:#e9ad9610;border:1px solid #e9ad9630;border-radius:10px;margin-bottom:20px}.save-notice.visible{display:block}dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:20px;padding:28px;width:min(460px,calc(100% - 32px));box-shadow:0 30px 100px #0009}dialog::backdrop{background:#060a07b8;backdrop-filter:blur(5px)}dialog h2{font-family:Georgia,serif;font-weight:400;font-size:27px;margin:0 0 20px}.field{display:grid;gap:7px;margin-bottom:16px;font-size:12px;color:var(--muted)}input:not([type=checkbox]),select{background:var(--bg);color:var(--text);padding:11px 12px;border-radius:9px;width:100%;min-width:0}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}.dialog-hint{font-size:11px;color:var(--muted)}#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--accent);color:#182014;padding:12px 20px;border-radius:12px;box-shadow:0 6px 30px #0005;font-size:12px;z-index:5;max-width:calc(100% - 32px);width:max-content}#toast:empty{display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(min-width:1450px){.main{padding:38px 64px}.hero{padding:60px 0 45px}.overview{margin-bottom:38px}.content-grid{gap:28px}}
+    @media(max-width:1100px){.layout{grid-template-columns:180px minmax(0,1fr)}.sidebar{padding:32px 18px}.main{padding:28px}.hero{grid-template-columns:1fr 180px}.clock{font-size:52px}.content-grid{grid-template-columns:1fr}.right-column{grid-template-columns:1fr 1fr;align-items:start}.overview-card{padding:16px 13px;gap:10px}.icon-box{width:32px;height:36px}.overview-value{font-size:21px}.weather-value{font-size:15px}}
+    @media(max-width:700px){.layout{display:block}.sidebar{display:none}.main{padding:20px}.mobile-brand{display:flex;font-size:22px}.topbar{flex-wrap:wrap;padding-bottom:18px}.topbar>.eyebrow{display:none}.topbar .location{font-size:10px}.hero{grid-template-columns:1fr;gap:24px;padding:30px 0}.hero h1{font-size:39px;letter-spacing:-1.3px}.hero p{font-size:13px}.clock-block{display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:right;padding-top:20px;border-top:1px solid var(--line)}.clock{font-size:43px;letter-spacing:-2px}.clock-block p{max-width:160px;margin:0;font-size:11px}.overview{grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}.overview-card{padding:15px;min-width:0}.overview-card.weather{grid-column:1/-1}.weather-value{font-size:19px}.weather .overview-label{display:inline}.weather-detail{margin-left:6px}.right-column{grid-template-columns:1fr}.panel-heading{padding:20px}.filters{padding:0 20px 15px}.task-row{padding:17px 20px}.panel-footer{padding:14px 20px}.bottom-bar{align-items:flex-start;flex-direction:column;margin-top:24px}.reflection{font-size:26px}.primary{width:100%}.dialog-actions .primary{width:auto}.panel-heading h2{font-size:16px}.small-button{white-space:nowrap}.topbar .brand-mark{font-size:26px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <svg aria-hidden="true" style="display:none"><defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="m7 12 3 3 7-7"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5c-3-2-6-2-10-1v15c4-1 7-1 10 1 3-2 6-2 10-1V4c-4-1-7-1-10 1Zm0 0v15"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M6 6a8 8 0 0 1 13 3M5 15a8 8 0 0 0 13 3"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7"/></symbol>
+  </defs></svg>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Navegação principal">
+      <a href="#inicio" class="brand"><span class="brand-mark">✳</span> essencial<span style="color:var(--accent)">.</span></a>
+      <div><p class="eyebrow" style="margin:0 14px 18px">Seu espaço diário</p>
+        <nav><a class="nav-link active" href="#inicio"><svg><use href="#i-home"/></svg>Visão do dia</a><a class="nav-link" href="#pendencias"><svg><use href="#i-check"/></svg>Pendências</a><a class="nav-link" href="#estudos"><svg><use href="#i-book"/></svg>Meus estudos</a><a class="nav-link" href="#filosofia"><span style="font-family:Georgia;font-size:22px;width:20px;text-align:center">φ</span>Filosofia</a></nav>
+      </div>
+      <div class="sidebar-note"><span class="eyebrow">Um passo de cada vez</span><p>Presença no que importa.<br>Constância no que constrói.</p><div class="progress-track"><span id="sidebar-progress"></span></div><span id="sidebar-summary">Preparando seu dia</span><p style="margin-top:32px;font-size:10px"><span class="status-dot"></span>Dados neste navegador</p></div>
+    </aside>
+    <main class="main" id="inicio">
+      <header class="topbar"><a class="brand mobile-brand" href="#inicio"><span class="brand-mark">✳</span>essencial.</a><span class="eyebrow">Clareza para começar. Foco para continuar.</span><span class="location"><svg aria-hidden="true"><use href="#i-pin"/></svg>Belo Horizonte, MG</span></header>
+      <section class="hero" aria-labelledby="greeting"><div><span class="eyebrow" id="today-label">Seu dia começa aqui</span><h1 id="greeting">Um novo dia.<br><em>O essencial primeiro.</em></h1><p>Organize as pendências, abra espaço para aprender e dê atenção ao que merece permanecer.</p><a class="primary" id="review-button" href="#pendencias">Revisar pendências<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div><div class="clock-block"><time id="clock" class="clock" aria-label="Horário de Belo Horizonte">--:--</time><p id="clock-caption">Horário de Belo Horizonte<br>Um momento para se organizar.</p></div></section>
+      <div id="save-notice" class="save-notice" role="alert"></div>
+      <section class="overview" aria-label="Resumo do dia">
+        <div class="overview-card"><span class="icon-box"><svg aria-hidden="true"><use href="#i-check"/></svg></span><div><div class="overview-value" id="pending-count">0</div><div class="overview-label">pendências em aberto</div></div></div>
+        <div class="overview-card"><span class="icon-box"><svg aria-hidden="true"><use href="#i-book"/></svg></span><div><div class="overview-value" id="study-count">0</div><div class="overview-label">estudos na sua lista</div></div></div>
+        <div class="overview-card weather"><span class="icon-box"><svg aria-hidden="true"><use href="#i-sun"/></svg></span><div aria-live="polite"><div class="overview-value weather-value" id="weather-temp">Consultando…</div><div class="overview-label" id="weather-condition">Clima de Belo Horizonte</div><div class="weather-detail" id="weather-detail"></div></div><button class="weather-refresh" id="weather-refresh" aria-label="Atualizar clima"><svg aria-hidden="true"><use href="#i-refresh"/></svg></button></div>
+      </section>
+      <div class="content-grid">
+        <section id="pendencias" class="panel" aria-labelledby="tasks-title"><div class="panel-heading"><div><h2 id="tasks-title" tabindex="-1">O que pede sua atenção</h2><p>BPO financeiro e vida de estudos</p></div><button class="small-button" id="add-task"><svg aria-hidden="true"><use href="#i-plus"/></svg>Nova tarefa</button></div><div class="filters" role="group" aria-label="Filtrar tarefas"><button class="filter active" data-filter="pending" aria-pressed="true">Pendentes</button><button class="filter" data-filter="bpo" aria-pressed="false">BPO</button><button class="filter" data-filter="study" aria-pressed="false">Estudos</button><button class="filter" data-filter="done" aria-pressed="false">Concluídas</button></div><ul class="task-list" id="task-list"></ul><div class="panel-footer"><span id="task-summary"></span><span>Progresso, sem pressa.</span></div></section>
+        <div class="right-column">
+          <section id="filosofia" class="panel philosophy" aria-labelledby="philosophy-title"><h2 class="eyebrow" id="philosophy-title" style="margin:0">Uma pausa para pensar</h2><div class="quote-mark" aria-hidden="true">“</div><p class="reflection" id="reflection"></p><div class="quote-bottom"><div><div class="philosopher" id="philosopher"></div><p class="concept" id="concept"></p></div><button class="next-quote" id="next-reflection" aria-label="Mostrar próxima reflexão">Outra reflexão ↗</button></div><p class="reflection-note">Reflexão autoral inspirada no pensador indicado; não é uma citação literal.</p></section>
+          <section id="estudos" class="panel" aria-labelledby="studies-title"><div class="panel-heading"><div><h2 id="studies-title">Sua vida de estudos</h2><p>Conhecimento cultivado com constância</p></div><svg style="color:var(--gold)" aria-hidden="true"><use href="#i-book"/></svg></div><ul class="study-list" id="study-list"></ul><p class="study-tip">Use + para incluir uma sessão nas pendências.</p></section>
+        </div>
+      </div>
+      <footer class="bottom-bar"><span>Menos dispersão. Mais intenção.<br>Tarefas salvas neste navegador, sem sincronização automática.</span><div class="data-actions"><button class="text-button" id="export-data">Exportar tarefas ↗</button><button class="text-button" id="import-data">Importar tarefas ↙</button><input type="file" accept="application/json,.json" id="import-file" hidden></div></footer>
+    </main>
+  </div>
+  <dialog id="task-dialog" aria-labelledby="dialog-title"><form id="task-form"><h2 id="dialog-title">Um próximo passo.</h2><label class="field">O que precisa ser feito?<input id="task-title" name="title" required maxlength="180" autocomplete="off" placeholder="Descreva uma tarefa concreta"></label><div class="form-row"><label class="field">Área<select id="task-area" name="area"><option value="bpo">BPO financeiro</option><option value="study">Estudos</option><option value="personal">Pessoal</option></select></label><label class="field">Data prevista<input id="task-date" name="date" type="date" required></label></div><label class="field">Prioridade<select id="task-priority" name="priority"><option value="normal">Normal</option><option value="high">Alta</option></select></label><div class="dialog-actions"><button type="button" id="cancel-task">Cancelar</button><button class="primary" type="submit">Adicionar tarefa</button></div></form></dialog>
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title"><h2 id="confirm-title">Importar tarefas?</h2><p class="dialog-hint" id="import-summary"></p><p class="dialog-hint">As tarefas do arquivo serão adicionadas. Tarefas com o mesmo identificador serão mantidas como estão neste navegador.</p><div class="dialog-actions"><button id="cancel-import">Cancelar</button><button class="primary" id="confirm-import">Importar</button></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript><p style="padding:24px">Ative o JavaScript para usar o relógio, o clima e a lista de tarefas.</p></noscript>
+  <script>
+    'use strict';
+    const $ = id => document.getElementById(id);
+    const ZONE = 'America/Sao_Paulo';
+    const KEY = 'essencial.tasks.v1';
+    const dateFormat = new Intl.DateTimeFormat('en-CA', {timeZone:ZONE,year:'numeric',month:'2-digit',day:'2-digit'});
+    function todayKey(){const p=dateFormat.formatToParts(new Date());return ['year','month','day'].map(k=>p.find(x=>x.type===k).value).join('-');}
+    function uid(){return globalThis.crypto?.randomUUID?.() || Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);}
+    const subjects = [ ['Ancord e CPA','Certificações financeiras'],['Introdução a Aristóteles','Filosofia clássica'],['Confissões · Santo Agostinho','Leitura e reflexão'],['Cálculo II','Matemática'],['C++','Programação'] ];
+    const reflections = [
+      ['Aristóteles','Hábito e formação do caráter','A vida que você deseja se forma nos atos que escolhe repetir hoje.'],
+      ['Santo Tomás de Aquino','Prudência e ação','Antes de agir, olhe com atenção para a realidade. Uma boa decisão começa por enxergar bem.'],
+      ['Santo Anselmo','Fé em busca de compreensão','Reserve espaço para compreender mais profundamente aquilo em que você acredita.'],
+      ['Søren Kierkegaard','Escolha e responsabilidade','Entre tantas possibilidades, uma escolha concreta dá forma ao seu dia.'],
+      ['Olavo de Carvalho','Vida intelectual e consciência','Examine o que você sabe por experiência e o que apenas aprendeu a repetir.'],
+      ['Wolfgang Smith','Contemplação e realidade','Nem tudo o que importa cabe em uma medida. Olhe também para o sentido do que faz.']
+    ];
+    let reflectionIndex = Math.floor(Date.parse(todayKey()+'T12:00:00Z')/86400000)%reflections.length;
+    let filter = 'pending', toastTimer, pendingImport = [];
+    const initialTasks = [
+      {title:'Realizar conciliações bancárias',area:'bpo',priority:'high'},
+      {title:'Atualizar o painel de saldos',area:'bpo',priority:'normal'},
+      {title:'Analisar relatórios financeiros',area:'bpo',priority:'normal'},
+      {title:'Revisar conteúdos de Ancord e CPA',area:'study',priority:'normal'}
+    ].map((task,i)=>({...task,id:'initial-'+i,date:todayKey(),done:false}));
+    function validTask(t){return t && typeof t.id==='string' && t.id.length>0 && t.id.length<=100 && typeof t.title==='string' && t.title.trim().length>0 && t.title.length<=180 && ['bpo','study','personal'].includes(t.area) && ['normal','high'].includes(t.priority) && typeof t.done==='boolean' && typeof t.date==='string' && /^\d{4}-\d{2}-\d{2}$/.test(t.date) && Number.isFinite(Date.parse(t.date+'T12:00:00Z')) && new Date(t.date+'T12:00:00Z').toISOString().slice(0,10)===t.date;}
+    function normalize(t){return {id:t.id,title:t.title.trim(),area:t.area,priority:t.priority,date:t.date,done:t.done};}
+    function notice(message){$('save-notice').textContent=message;$('save-notice').classList.add('visible');}
+    let tasks = initialTasks;
+    let canSave = true;
+    try { const saved=localStorage.getItem(KEY); if(saved!==null){const parsed=JSON.parse(saved);if(!Array.isArray(parsed)||!parsed.every(validTask)||new Set(parsed.map(t=>t.id)).size!==parsed.length)throw new Error('invalid');tasks=parsed.map(normalize);} }
+    catch {canSave=false;notice('Não foi possível ler as tarefas salvas. Exibindo sugestões sem substituir seus dados anteriores. Exporte suas tarefas antes de fechar a página.');}
+    function persist(){if(!canSave)return;try{localStorage.setItem(KEY,JSON.stringify(tasks));}catch{notice('O navegador não permitiu salvar. Exporte suas tarefas para não perder as alterações.');}}
+    function toast(message){$('toast').textContent=message;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').textContent='',3600);}
+    function el(tag,className,text){const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;}
+    function icon(name){const n=document.createElementNS('http://www.w3.org/2000/svg','svg');n.setAttribute('aria-hidden','true');const use=document.createElementNS(n.namespaceURI,'use');use.setAttribute('href','#i-'+name);n.append(use);return n;}
+    const areaLabels={bpo:'BPO financeiro',study:'Estudos',personal:'Pessoal'};
+    function render(){
+      const pending=tasks.filter(t=>!t.done),done=tasks.length-pending.length;
+      $('pending-count').textContent=pending.length.toString().padStart(2,'0');
+      $('study-count').textContent=pending.filter(t=>t.area==='study').length.toString().padStart(2,'0');
+      $('sidebar-summary').textContent=done+' de '+tasks.length+' tarefas concluídas';
+      $('sidebar-progress').style.width=(tasks.length?done/tasks.length*100:0)+'%';
+      $('task-summary').textContent=pending.length+' pendente'+(pending.length===1?'':'s')+' · '+done+' concluída'+(done===1?'':'s');
+      document.querySelectorAll('[data-filter]').forEach(b=>{const active=b.dataset.filter===filter;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+      const visible=tasks.filter(t=>filter==='done'?t.done:!t.done&&(filter==='pending'||t.area===filter)).sort((a,b)=>a.date.localeCompare(b.date)||(a.priority===b.priority?0:a.priority==='high'?-1:1));
+      const list=$('task-list');list.replaceChildren();
+      if(!visible.length){list.append(el('li','empty',filter==='done'?'Suas tarefas concluídas aparecerão aqui.':'Tudo em ordem por aqui. Abra espaço para o próximo passo.'));return;}
+      for(const task of visible){
+        const row=el('li','task-row'+(task.done?' done':'')),check=el('input','task-check');check.type='checkbox';check.checked=task.done;check.id='task-'+task.id;check.setAttribute('aria-label',(task.done?'Reabrir: ':'Concluir: ')+task.title);
+        check.addEventListener('change',()=>{task.done=check.checked;persist();render();toast(task.done?'Tarefa concluída. Um passo a mais.':'Tarefa reaberta.');const replacement=$('task-list').querySelector('input,button');(replacement||document.querySelector('[data-filter="'+filter+'"]')).focus({preventScroll:true});});
+        const main=el('div','task-main'),label=el('label','task-title',task.title);label.htmlFor=check.id;
+        const meta=el('div','task-meta');meta.append(el('span','tag'+(task.area==='study'?' study':''),areaLabels[task.area]));
+        const day=task.date===todayKey()?'Hoje':new Intl.DateTimeFormat('pt-BR',{day:'2-digit',month:'short'}).format(new Date(task.date+'T12:00:00'));
+        meta.append(el('span',!task.done&&task.date<todayKey()?'overdue':'',(!task.done&&task.date<todayKey()?'Em atraso · ':'')+day));
+        if(task.priority==='high')meta.append(el('span','', '↑ Prioridade alta'));
+        main.append(label,meta);const remove=el('button','remove-task');remove.setAttribute('aria-label','Excluir: '+task.title);remove.append(icon('trash'));
+        remove.addEventListener('click',()=>{tasks=tasks.filter(t=>t.id!==task.id);persist();render();toast('Tarefa excluída.');$('add-task').focus({preventScroll:true});});row.append(check,main,remove);list.append(row);
+      }
+    }
+    let lastDay='';
+    function tick(){const now=new Date();$('clock').textContent=new Intl.DateTimeFormat('pt-BR',{timeZone:ZONE,hour:'2-digit',minute:'2-digit'}).format(now);$('clock').dateTime=now.toISOString();const day=todayKey();if(day!==lastDay){$('today-label').textContent=new Intl.DateTimeFormat('pt-BR',{timeZone:ZONE,weekday:'long',day:'numeric',month:'long'}).format(now);lastDay=day;render();}}
+    function showReflection(){const [author,concept,text]=reflections[reflectionIndex];$('philosopher').textContent=author;$('concept').textContent=concept;$('reflection').textContent=text;}
+    $('next-reflection').addEventListener('click',()=>{reflectionIndex=(reflectionIndex+1)%reflections.length;showReflection();});
+    document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;render();}));
+    $('review-button').addEventListener('click',()=>{filter='pending';render();$('tasks-title').focus({preventScroll:true});});
+    document.querySelectorAll('.nav-link').forEach(link=>link.addEventListener('click',()=>{document.querySelectorAll('.nav-link').forEach(a=>a.classList.remove('active'));link.classList.add('active');}));
+    function openTask(title='',area='bpo'){$('task-form').reset();$('task-title').value=title;$('task-area').value=area;$('task-date').value=todayKey();$('task-dialog').showModal();$('task-title').focus();}
+    $('add-task').addEventListener('click',()=>openTask());$('cancel-task').addEventListener('click',()=>$('task-dialog').close());
+    $('task-title').addEventListener('input',()=>$('task-title').setCustomValidity(''));
+    $('task-form').addEventListener('submit',event=>{event.preventDefault();const title=$('task-title').value.trim();if(!title){$('task-title').setCustomValidity('Descreva a tarefa.');$('task-title').reportValidity();return;}const task={id:uid(),title,area:$('task-area').value,date:$('task-date').value,priority:$('task-priority').value,done:false};if(!validTask(task)){toast('Confira a data e o título da tarefa.');return;}tasks.push(task);filter='pending';persist();render();$('task-dialog').close();toast('Tarefa adicionada às pendências.');});
+    for(const [name,kind] of subjects){const li=el('li');li.append(el('span','study-num',String(subjects.findIndex(s=>s[0]===name)+1).padStart(2,'0')));const text=el('span','study-name',name);text.append(el('span','study-kind',kind));const add=el('button','study-add');add.setAttribute('aria-label','Planejar estudo: '+name);add.append(icon('plus'));add.addEventListener('click',()=>openTask('Estudar '+name,'study'));li.append(text,add);$('study-list').append(li);}
+    async function weather(){
+      const button=$('weather-refresh');button.disabled=true;$('weather-temp').textContent='Consultando…';$('weather-condition').textContent='Clima de Belo Horizonte';$('weather-detail').textContent='';
+      try{
+        const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),10000);let response;
+        try{response=await fetch('https://api.open-meteo.com/v1/forecast?latitude=-19.9208&longitude=-43.9378&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=America%2FSao_Paulo&forecast_days=1',{signal:controller.signal});}finally{clearTimeout(timeout);}
+        if(!response.ok)throw new Error('weather');const data=await response.json(),temp=data.current?.temperature_2m,code=data.current?.weather_code;
+        if(typeof temp!=='number'||!Number.isFinite(temp))throw new Error('weather');
+        const description=code===0?'Céu limpo':code<=2?'Parcialmente nublado':code===3?'Nublado':code<=48?'Nevoeiro':code<=57?'Garoa':code<=67?'Chuva':code<=77?'Precipitação':code<=82?'Pancadas de chuva':code<=86?'Precipitação':'Trovoadas';
+        $('weather-temp').textContent=new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0}).format(temp)+'°C';$('weather-condition').textContent=description;
+        const min=data.daily?.temperature_2m_min?.[0],max=data.daily?.temperature_2m_max?.[0];const range=Number.isFinite(min)&&Number.isFinite(max)?Math.round(min)+'° / '+Math.round(max)+'° · ':'';
+        const link=el('a','', 'Open-Meteo');link.href='https://open-meteo.com/';link.target='_blank';link.rel='noopener noreferrer';$('weather-detail').append(document.createTextNode(range),link,document.createTextNode(' · '+new Intl.DateTimeFormat('pt-BR',{timeZone:ZONE,hour:'2-digit',minute:'2-digit'}).format(new Date())));
+      }catch{$('weather-temp').textContent='Indisponível';$('weather-condition').textContent='Sem dados de clima no momento';$('weather-detail').textContent='Conecte-se à internet e tente atualizar.';}finally{button.disabled=false;}
+    }
+    $('weather-refresh').addEventListener('click',weather);
+    $('export-data').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),tasks},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download='essencial-tarefas-'+todayKey()+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Arquivo de tarefas exportado.');});
+    $('import-data').addEventListener('click',()=>$('import-file').click());
+    $('import-file').addEventListener('change',async event=>{const file=event.target.files[0];if(!file)return;try{if(file.size>2000000)throw new Error('size');const data=JSON.parse(await file.text());if(data.version!==1||!Array.isArray(data.tasks)||data.tasks.length>5000||!data.tasks.every(validTask)||new Set(data.tasks.map(t=>t.id)).size!==data.tasks.length)throw new Error('format');pendingImport=data.tasks.map(normalize);const added=pendingImport.filter(t=>!tasks.some(current=>current.id===t.id)).length;$('import-summary').textContent=added+' nova(s) tarefa(s) serão adicionadas.';$('confirm-dialog').showModal();}catch{toast('Arquivo inválido. Use uma exportação de tarefas do Essencial (até 2 MB).');}event.target.value='';});
+    $('cancel-import').addEventListener('click',()=>$('confirm-dialog').close());
+    $('confirm-import').addEventListener('click',()=>{const known=new Set(tasks.map(t=>t.id));tasks.push(...pendingImport.filter(t=>!known.has(t.id)));pendingImport=[];persist();render();$('confirm-dialog').close();toast('Tarefas importadas.');});
+    tick();showReflection();weather();setInterval(tick,1000);setInterval(weather,30*60*1000);persist();
+  </script>
+</body>
 </html>
