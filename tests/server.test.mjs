@@ -9,6 +9,7 @@ test('HTTP serves only the site and known APIs, with caching, CSP and safe metho
   const base = 'http://127.0.0.1:' + server.address().port;
   const response = await fetch(base), html = await response.text();
   assert.equal(response.status, 200); assert.ok(html.includes('<html lang="en">')); assert.ok(response.headers.get('content-security-policy').includes("script-src 'sha256-")); assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
+  assert.ok(html.includes('<meta name="scriptorium-api" content="enabled">'));
   assert.equal((await fetch(base, { headers: { 'If-None-Match': response.headers.get('etag') } })).status, 304);
   const head = await fetch(base, { method: 'HEAD' }); assert.equal(head.status, 200); assert.equal(await head.text(), '');
   for (const path of ['/.git/config', '/.env', '/src/app.js', '/%2e%2e/server.mjs', '/api/unknown']) assert.equal((await fetch(base + path)).status, 404);

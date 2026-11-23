@@ -2,6 +2,7 @@ import { TIME_ZONE, STORAGE_KEY, MAX_TASKS, STUDIES, REFLECTIONS, dayKey, validT
 import { ECONOMIC_SERIES, WEATHER_URL, seriesUrl, seriesSource, fetchJson, normalizeSeries, normalizeWeather, validSeriesPayload, validWeatherPayload } from './providers.js';
 
 const byId = id => document.getElementById(id);
+const useBackend = document.querySelector('meta[name="scriptorium-api"]')?.getAttribute('content') === 'enabled';
 const areaNames = { bpo: 'Financial BPO', study: 'Studies', personal: 'Personal' };
 const moneyIds = new Set(['usd', 'eur']);
 const dateFormatter = new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: TIME_ZONE });
@@ -204,7 +205,7 @@ function showIndicator(series) {
   byId('data-dialog').showModal();
 }
 async function obtainEconomy() {
-  if (location.protocol !== 'file:') {
+  if (useBackend) {
     try { const payload = await fetchJson('/api/economy'); if (!Array.isArray(payload.items) || payload.items.length !== ECONOMIC_SERIES.length) throw new Error('Invalid backend response'); return payload.items; } catch { /* Static hosts and direct files can read the same public APIs. */ }
   }
   return Promise.all(ECONOMIC_SERIES.map(async series => {
@@ -252,7 +253,7 @@ function refreshWeather(force = false) {
   weatherFlight = (async () => {
     try {
       let record;
-      if (location.protocol !== 'file:') { try { record = await fetchJson('/api/weather'); if (!record || !['ok', 'cached', 'unavailable'].includes(record.status)) throw new Error('Invalid backend'); } catch { record = null; } }
+      if (useBackend) { try { record = await fetchJson('/api/weather'); if (!record || !['ok', 'cached', 'unavailable'].includes(record.status)) throw new Error('Invalid backend'); } catch { record = null; } }
       if (!record) record = { status: 'ok', data: normalizeWeather(await fetchJson(WEATHER_URL)) };
       if (!['ok', 'cached'].includes(record.status) || !validWeatherPayload(record.data)) throw new Error('Weather unavailable');
       weatherState = record; saveCache(WEATHER_KEY, record.data);

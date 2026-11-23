@@ -8,7 +8,7 @@ import { createDataService } from './lib/data-service.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 export async function createApp({ service = createDataService(), indexPath = join(root, 'index.html') } = {}) {
-  const html = await readFile(indexPath), compressed = gzipSync(html);
+  const html = Buffer.from((await readFile(indexPath, 'utf8')).replace('<meta name="scriptorium-api" content="disabled">', '<meta name="scriptorium-api" content="enabled">')), compressed = gzipSync(html);
   const digest = createHash('sha256').update(html).digest('hex');
   const script = html.toString().match(/<script>([\s\S]*?)<\/script>/)?.[1] || '';
   const scriptHash = createHash('sha256').update(script).digest('base64');

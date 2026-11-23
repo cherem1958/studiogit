@@ -4,6 +4,8 @@ A personal daily observatory for financial operations, deliberate study and phil
 
 ## Open the site
 
+**Published site:** https://cherem1958.github.io/studiogit/ ? the repository already has GitHub Pages configured. Its existing deployment updates the generated index after commits to main.
+
 **Standalone:** open `index.html` directly in a modern browser. The file contains the entire interface and application code. Tasks, editing, search, backups, philosophy and responsive layouts work without a server. An internet connection is required for weather and economic observations; official APIs support direct browser requests.
 
 **Recommended local server:** with Node.js 22 or newer, double-click `start.cmd`, or run:
@@ -85,6 +87,8 @@ On Windows with PowerShell execution-policy restrictions, use `npm.cmd` in place
 ```sh
 node scripts/build.mjs --copy=../index.html
 ```
+
+Static hosts use the official APIs directly, without probing nonexistent backend routes. The Node server opts the generated page into its same-origin API with a server-controlled metadata flag. `.nojekyll` keeps the published site free of template processing.
 
 The HTTP server only exposes `/`, `/index.html`, `/api/health`, `/api/economy` and `/api/weather`. It does not serve arbitrary repository files or accept task uploads. It uses gzip, ETags, an inline-script hash in the Content Security Policy, a deny-by-default resource policy, anti-framing headers and request timeouts. The API does not accept arbitrary upstream URLs. Each provider request has a deadline; simultaneous requests share in-flight work. A validated provider snapshot is saved atomically under ignored `.cache/` for restart recovery. Tasks never enter the server.
 

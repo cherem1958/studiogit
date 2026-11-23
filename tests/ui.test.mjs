@@ -9,6 +9,7 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 async function boot({ saved, offline = false, protocol = 'file:' } = {}) {
   const { document, window } = parseHTML(html), storage = new Map(saved === undefined ? [] : [[STORAGE_KEY, saved]]);
+  if (protocol === 'http:') document.querySelector('meta[name="scriptorium-api"]').setAttribute('content', 'enabled');
   let clock = new Date('2026-11-23T15:00:00Z'), lastBlob;
   class Clock extends Date { constructor(...args) { super(...(args.length ? args : [+clock])); } static now() { return +clock; } }
   for (const select of document.querySelectorAll('select')) { let value = select.querySelector('option').value; Object.defineProperty(select, 'value', { get: () => value, set: v => value = v }); }
