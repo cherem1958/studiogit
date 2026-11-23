@@ -4,6 +4,8 @@ A personal daily observatory for financial operations, deliberate study and phil
 
 ## Open the site
 
+The reading scale uses the browser's default font size as its base. At the usual 16 px default, auxiliary text is at least 13 px, main task text and descriptions are 16 px, and form inputs are 16 px. On phones, the header, task controls and progress area wrap into readable rows instead of shrinking text. The original palette, serif headings and artwork are preserved.
+
 **Published site:** https://cherem1958.github.io/studiogit/ ? the repository already has GitHub Pages configured. Its existing deployment updates the generated index after commits to main.
 
 **Standalone:** open `index.html` directly in a modern browser. The file contains the entire interface and application code. Tasks, editing, search, backups, philosophy and responsive layouts work without a server. An internet connection is required for weather and economic observations; official APIs support direct browser requests.
